@@ -2,8 +2,7 @@
 const nextConfig = {
     images: {
         domains: ['yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com'],
-        loader: 'akamai',
-        path: ''
+        loader: 'akamai'
     },
     reactStrictMode: true,
     swcMinify: true
