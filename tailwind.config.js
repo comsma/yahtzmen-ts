@@ -8,7 +8,6 @@ module.exports = {
         extend: {
             colors: {
                 'oxford-blue': '#09142a',
-                'orange-yellow-crayola': '#F0CA6E',
                 'golden-rod': '#efc96e'
             },
             fontFamily: {

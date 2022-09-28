@@ -3,6 +3,7 @@ import Image from 'next/image'
 import home1 from '../public/images/home/1.webp'
 import home2 from '../public/images/home/2.webp'
 import home3 from '../public/images/home/3.webp'
+import home4 from '../public/images/home/4.webp'
 
 const products = [
     {"name": "Lamp", "images": [{"img": "1.jpg"}, {"img": "2.jpg"}]},
@@ -12,26 +13,44 @@ const products = [
 ]
 const Home: NextPage = () => {
     return (<>
-            <div className="w-px-[300] h-screen relative">
-                <Image src={home1}
-                       layout={'fill'}
-                       objectFit={'cover'}
-                       alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}/>
+            <div className="w-full aspect-[9/16] overflow-hidden relative object-left md:aspect-[16/9] ">
+                <Image
+                    src={home1}
+                    alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
+                    layout="fill"
+                    objectPosition={"left"}
+                    objectFit="cover"
+                />
                 <div
-                    className={'absolute z-20 bg-opacity-70 bg-black top-1/4 left-1/2 -translate-x-1/2 p-5 w-3/4 lg:bg-opacity-0 lg:left-1/4 lg:w-auto font-book-antiqua text-golden-rod text-2xl tracking-wide lg:text-4xl'}>
-                    <p className={'ml-0 leading-loose'}>Thoughtfully Designed,</p>
-                    <p className={'ml-10 leading-loose'}>Bespoke Furnishings for</p>
-                    <p className={'ml-20 leading-loose'}>Modern Living.</p>
+                    className={'absolute z-20 flex flex-col justify-start top-0 bottom-0 p-5 w-full lg:w-1/2 font-book-antiqua text-golden-rod text-2xl tracking-wide lg:p-20 lg:justify-center'}>
+                    <div className={'text-4xl text-center leading-loose lg:text-left'}>
+                        <p>Thoughtfully Designed,</p>
+                        <p>Bespoke Furnishings for</p>
+                        <p>Modern Living.</p>
+                    </div>
+                </div>
+            </div>
+            <div className="w-full aspect-[9/16] overflow-hidden relative object-left md:aspect-[16/9] ">
+                <Image
+                    src={home2}
+                    alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
+                    layout="fill"
+                    objectPosition={"left"}
+                    objectFit="cover"
+                />
+                <div
+                    className={'absolute z-20 top-0 bottom-0 p-5 w-full mt-40 lg:w-1/2 font-book-antiqua text-golden-rod text-2xl tracking-wide lg:p-20 '}>
+                    <p className={'leading-loose text-center bottom-5'}>All our Products are Made to Order and Hand Crafted from the Finest Materials.</p>
                 </div>
 
             </div>
-            <div className="w-screen h-screen relative">
-                <Image src={home2}
-                       layout={'fill'}
-                       objectFit={'cover'}
-                       alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}/>
-            </div>
-            <div className="bg-white">
+            {/*<div className="w-screen h-screen relative">*/}
+            {/*    <Image src={home2}*/}
+            {/*           layout={'fill'}*/}
+            {/*           objectFit={'cover'}*/}
+            {/*           alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}/>*/}
+            {/*</div>*/}
+            <div className="bg-white" id={"shop"}>
                 <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                     <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Products</h2>
 
@@ -62,11 +81,66 @@ const Home: NextPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-screen h-screen relative">
-                <Image src={home3}
-                       layout={'fill'}
-                       objectFit={'cover'}
-                       alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}/>
+            <div className="w-full aspect-[9/16] overflow-hidden relative object-left md:aspect-[16/9] " id={"collaborate"}>
+                <Image
+                    src={home3}
+                    alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
+                    layout="fill"
+                    objectPosition={"left"}
+                    objectFit="cover"
+                />
+                <div
+                    className={'absolute z-20 flex flex-col justify-end top-0 bottom-0 p-5 w-full lg:w-1/2 font-book-antiqua text-golden-rod text-2xl tracking-wide lg:p-20 lg:justify-center'}>
+                    <div>
+                        <h1 className={'text-4xl'}>Let's Collaborate.</h1>
+                        <div className={'pl-5 pt-5 text-2xl leading-loose'}>
+                            <p>Our Mission
+                                If your looking to create something
+                                custom or if your interested in modifing
+                                one of our existing products so best fits
+                                your design.
+
+                            </p>
+                            <br />
+                            <p>Please contact us,</p>
+                            <p>we would love to work with you.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div className="w-full h-screen relative object-left  " id={"mission"}>
+                <Image
+                    src={home4}
+                    alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
+                    layout="fill"
+                    objectPosition={"left"}
+                    objectFit="cover"
+                />
+                <div
+                    className={'absolute flex flex-col justify-end z-20 bg-opacity-50 bg-black top-0 bottom-0 p-5 lg:w-auto font-book-antiqua text-golden-rod text-2xl tracking-wide lg:p-20 lg:justify-center'}>
+                    <div className={''}>
+                        <h1 className={'text-4xl'}>Our Mission</h1>
+                        <br />
+                        <p className={'leading-relaxed lg:leading-loose'}>
+                            Yathzmen furnishings was started to fulfill a need to create,
+                            to build something of quality, by hand and share it with
+                            others. Our mission is to love what we do and do what we
+                            love. To grow this company so we can share our designs
+                            and craftsmanship with our clients around the world. When
+                            you buy a product of ours your not buying something mass
+                            produced, its created for you. By doing this your getting
+                            something special that was made just for you.
+                        </p>
+                        <br />
+                        <p className={'leading-loose font-bold'}>Paul Pilewski</p>
+                        <p className={'leading-loose'}>Owner and Artisan of Yahtzmen Furnishings</p>
+                    </div>
+
+                </div>
+
             </div>
         </>
 
