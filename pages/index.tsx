@@ -121,10 +121,10 @@ const Home: NextPage = () => {
                 />
                 <div
                     className={'absolute flex flex-col justify-end z-20 bg-opacity-50 bg-black top-0 bottom-0 p-5 lg:w-auto font-book-antiqua text-golden-rod text-2xl tracking-wide lg:p-20 lg:justify-center'}>
-                    <div className={''}>
+                    <div className={'text-xl lg:text-2xl lg:w-3/4 self-center'}>
                         <h1 className={'text-4xl'}>Our Mission</h1>
                         <br />
-                        <p className={'leading-relaxed lg:leading-loose'}>
+                        <p className={'leading-relaxed text-xl lg:leading-loose'}>
                             Yathzmen furnishings was started to fulfill a need to create,
                             to build something of quality, by hand and share it with
                             others. Our mission is to love what we do and do what we
