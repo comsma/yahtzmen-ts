@@ -11,7 +11,7 @@ module.exports = {
                 'golden-rod': '#efc96e'
             },
             fontFamily: {
-                'book-antiqua': ['book-antiqua']
+                'lora': ['Lora', 'serif']
             }
         },
     },

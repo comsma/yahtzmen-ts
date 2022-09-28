@@ -12,8 +12,8 @@ const products = [
 
 ]
 const Home: NextPage = () => {
-    return (<>
-            <div className="w-full aspect-[9/16] overflow-hidden relative object-left md:aspect-[16/9] ">
+    return (<div className={'font-lora'}>
+            <div className="w-full aspect-[9/16] overflow-hidden relative object-left md:aspect-[16/9]">
                 <Image
                     src={home1}
                     alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
                     objectFit="cover"
                 />
                 <div
-                    className={'absolute z-20 flex flex-col justify-start top-0 bottom-0 p-5 w-full lg:w-1/2 font-book-antiqua text-golden-rod text-2xl tracking-wide lg:p-20 lg:justify-center'}>
+                    className={'absolute z-20 flex flex-col justify-start top-0 bottom-0 p-5 w-full lg:w-1/2 text-golden-rod text-2xl tracking-wide lg:p-20 lg:justify-center'}>
                     <div className={'text-4xl text-center leading-loose lg:text-left'}>
                         <p>Thoughtfully Designed,</p>
                         <p>Bespoke Furnishings for</p>
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
                     objectFit="cover"
                 />
                 <div
-                    className={'absolute z-20 top-0 bottom-0 p-5 w-full mt-40 lg:w-1/2 font-book-antiqua text-golden-rod text-2xl tracking-wide lg:p-20 '}>
+                    className={'absolute z-20 top-0 bottom-0 p-5 w-full mt-40 lg:w-1/2 text-golden-rod text-2xl tracking-wide lg:p-20 '}>
                     <p className={'leading-loose text-center bottom-5'}>All our Products are Made to Order and Hand Crafted from the Finest Materials.</p>
                 </div>
 
@@ -142,7 +142,7 @@ const Home: NextPage = () => {
                 </div>
 
             </div>
-        </>
+        </div>
 
 
     )
