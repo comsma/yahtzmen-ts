@@ -9,7 +9,7 @@ const navigation = [
 export default function Navigation() {
 
     return (
-        <header className="bg-oxford-blue font-book-antiqua text-golden-rod sticky top-0 z-50">
+        <header className="bg-oxford-blue font-lora text-golden-rod sticky top-0 z-50">
             <nav className="mx-auto px-4 sm:px-6 lg:px-8 relative" aria-label="Top">
                 <div className="m-auto py-3">
                     <div

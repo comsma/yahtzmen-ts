@@ -8,6 +8,7 @@ export default class Layout extends Component<{ children: any }> {
         let {children, ...props} = this.props;
         return (
             <>
+                <meta name="theme-color" content="#09142a" />
                 <Navigation/>
                 {children}
                 <Footer/>
