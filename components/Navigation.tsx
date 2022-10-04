@@ -1,5 +1,6 @@
 import Image from "next/image";
-
+import { ShoppingCartIcon } from '@heroicons/react/24/solid'
+import Link from "next/link";
 const navigation = [
     {name: 'Shop', href: '/#shop'},
     {name: 'Collaborate', href: '/#collaborate'},
@@ -42,33 +43,11 @@ export default function Navigation() {
                                     {link.name}
                                 </a>
                             ))}
-                            {/*<ShoppingBagIcon className={"h-5 w-5 text-accent"} />*/}
+                            <Link href={'/Cart'}>
+                                <ShoppingCartIcon className={"h-5 w-5 text-accent"} />
+                            </Link>
                         </div>
-                    </div>
-                    <div className="hidden flex-col justify-items-center justify-center p-10 lg:hidden">
 
-
-                        <div className={"self-end"}>
-                            {/*<ShoppingBagIcon className={"h-5 w-5 text-accent"} />*/}
-                        </div>
-                        {/*<div className={"pb-5"}>*/}
-                        {/*    <a href="#" className={"w-70 py-3"}>*/}
-                        {/*        <span className="sr-only">Workflow</span>*/}
-                        {/*        <Image*/}
-                        {/*            className="h-10 w-auto"*/}
-                        {/*            src={name}*/}
-                        {/*            alt=""*/}
-                        {/*        />*/}
-                        {/*    </a>*/}
-                        {/*</div>*/}
-                        <div className="space-x-8 flex justify-center border-t-2 border-accent ">
-                            {navigation.map((link) => (
-                                <a key={link.name} href={link.href}
-                                   className="py-3 font-light hover:text-white">
-                                    {link.name}
-                                </a>
-                            ))}
-                        </div>
                     </div>
                 </div>
             </nav>
