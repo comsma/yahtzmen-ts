@@ -15,8 +15,8 @@ const Product: NextPage =() => {
 
     const [product, setProduct] = useState<ProductsI>()
 
-    function checkout(productId: string): void {
-        fetch('https://api.yahtzmen.com/order/checkout', {
+    async function checkout(productId: string): Promise<void> {
+        const res = await fetch('https://api.yahtzmen.com/order/checkout', {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -24,6 +24,8 @@ const Product: NextPage =() => {
             method: 'POST',
             body: JSON.stringify({'productId': productId})
         })
+        const body = await res.json()
+        window.location.href = body.url
     }
 
     useEffect(() => {
