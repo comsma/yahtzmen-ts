@@ -1,13 +1,13 @@
 import type {NextPage} from 'next'
 import Image from 'next/image'
-import home1 from '../public/images/home/1.webp'
-import home1Mobile from '../public/images/home/1m.webp'
-import home2 from '../public/images/home/2.webp'
-import home2Mobile from '../public/images/home/2m.webp'
-import home3 from '../public/images/home/4.webp'
-import home3Mobile from '../public/images/home/4m.webp'
-import home4 from '../public/images/home/3.webp'
-import home4Mobile from '../public/images/home/3m.webp'
+import home1 from '/public/images/home/1.webp'
+import home1Mobile from '/public/images/home/1m.webp'
+import home2 from '/public/images/home/2.webp'
+import home2Mobile from '/public/images/home/2m.webp'
+import home3 from '/public/images/home/4.webp'
+import home3Mobile from '/public/images/home/4m.webp'
+import home4 from '/public/images/home/3.webp'
+import home4Mobile from '/public/images/home/3m.webp'
 import {useState} from "react";
 import {ProductsI} from "../interfaces/product.interface";
 
