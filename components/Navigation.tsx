@@ -45,7 +45,7 @@ export default function Navigation() {
                         <div className="space-x-8 lg:inline-flex items-center">
                             {navigation.map((link) => (
                                 <a key={link.name} href={link.href}
-                                   className="py-3 font-light text-xl hover:text-orange-yellow-crayola">
+                                   className="py-3 font-light text-md hover:text-orange-yellow-crayola md:text-lg lg:text-xl">
                                     {link.name}
                                 </a>
                             ))}
