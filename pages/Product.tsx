@@ -15,6 +15,17 @@ const Product: NextPage =() => {
 
     const [product, setProduct] = useState<ProductsI>()
 
+    function checkout(productId: string): void {
+        fetch('https://api.yahtzmen.com/order/checkout', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify({'productId': productId})
+        })
+    }
+
     useEffect(() => {
         if (router.isReady) {
             const { id } = router.query;
@@ -25,6 +36,7 @@ const Product: NextPage =() => {
     return (
 
         <div className="bg-white font-lora">
+            {product ?
             <div className={'grid grid-cols-1 lg:grid-cols-3 max-w-7xl m-auto'}>
                 <div className={'col-span-2 my-5'}>
                     <Tab.Group as="div" className="col-span-1 mx-10 max-w-5xl flex flex-col-reverse lg:flex-row">
@@ -81,7 +93,7 @@ const Product: NextPage =() => {
                             </div>
                         </div>
                         <div className={'self-center'}>
-                            <button className={'px-20 py-2 bg-oxford-blue text-golden-rod rounded-md hover:bg-golden-rod hover:text-white'}>Buy Now</button>
+                            <button onClick={() => checkout(product.id)} className={'px-20 py-2 bg-oxford-blue text-golden-rod rounded-md hover:bg-golden-rod hover:text-white'}>Buy Now</button>
                         </div>
                         <div className={'my-5 border-t-2 border-gray-200'}>
                             <Disclosure>
@@ -149,7 +161,12 @@ const Product: NextPage =() => {
                     </div>
                 </div>
             </div>
+                :
+            <div>
+                <h1>Product was not found</h1>
+            </div>}
         </div>
+
     )
 }
 export default Product;

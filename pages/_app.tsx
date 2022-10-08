@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Head>
               <meta name="theme-color" content="#09142a" />
               <title>Yahtzmen Furnishing</title>
+              <meta name={''}/>
           </Head>
           <Layout>
               <Component {...pageProps} />

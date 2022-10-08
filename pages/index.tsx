@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         .then((r) => r.json()).then(r => setProducts(r))
 
     return (
-        <div className={'font-lora'}>
+        <div className={'font-lora max-w-5xl m-auto'}>
             <div className="hidden w-full aspect-[16/9] overflow-hidden relative object-left lg:block">
                 <Image
                     src={home1}
