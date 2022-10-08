@@ -2,9 +2,10 @@ import Image from "next/image";
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 import Link from "next/link";
 const navigation = [
-    {name: 'Shop', href: '/#shop'},
-    {name: 'Collaborate', href: '/#collaborate'},
-    {name: 'Mission', href: '/#mission'}
+    {name: 'Products', href: '/#products'},
+
+    {name: 'Our Mission', href: '/#mission'},
+    {name: 'Lets Collaborate', href: '/#collaborate'},
 ]
 
 export default function Navigation() {
@@ -16,23 +17,28 @@ export default function Navigation() {
                     <div
                         className="grid grid-cols-1 grid-rows-2 gap-5 py-2 content-center justify-items-center h-20 m-auto w-full place-content-between lg:grid-cols-3 lg:grid-rows-1">
                         <div className={'hidden relative lg:flex'}>
-                            <div className={'w-96'}>
-                                <Image
-                                    layout={'fill'}
-                                    objectFit={'contain'}
-                                    src="https://yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com/name-logo.webp"
-                                    alt="Yahtmen Furnishings"
-                                />
+                            <div className={'w-96 cursor-pointer'}>
+                                <Link href={'/'}>
+                                    <Image
+                                        layout={'fill'}
+                                        objectFit={'contain'}
+                                        src="https://yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com/name-logo.webp"
+                                        alt="Yahtmen Furnishings"
+                                    />
+                                </Link>
+
                             </div>
                         </div>
                         <div className={'relative'}>
-                            <div className={'w-96'}>
-                                <Image
-                                    layout={'fill'}
-                                    objectFit={'contain'}
-                                    src="https://yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com/logo.webp"
-                                    alt="Yahtzmen YF logo"
-                                />
+                            <div className={'w-96 cursor-pointer'}>
+                                <Link href={'/'}>
+                                    <Image
+                                        layout={'fill'}
+                                        objectFit={'contain'}
+                                        src="https://yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com/logo.webp"
+                                        alt="Yahtzmen YF logo"
+                                    />
+                                </Link>
                             </div>
 
                         </div>
@@ -43,9 +49,6 @@ export default function Navigation() {
                                     {link.name}
                                 </a>
                             ))}
-                            <Link href={'/Cart'}>
-                                <ShoppingCartIcon className={"h-5 w-5 text-accent"} />
-                            </Link>
                         </div>
 
                     </div>

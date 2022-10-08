@@ -3,7 +3,10 @@ export interface ProductsI {
     name: string,
     description: string,
     price: number,
-    images:  productImages[]
+    images:  productImages[],
+    features: string[],
+    notes: string,
+    dimensions: string,
 }
 interface productImages {
     imageUrl: string
