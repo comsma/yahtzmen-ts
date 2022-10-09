@@ -96,7 +96,7 @@ const Product: NextPage =() => {
                     <div className="py-10 flex flex-col">
                         <div className={'py-10'}>
                             <div className="space-y-6">
-                                <p className="text-base text-gray-900">{product?.description}</p>
+                                <p className="text-base text-gray-900 whitespace-pre-line">{product?.description}</p>
                             </div>
                         </div>
                         <div className={'self-center w-full'}>
@@ -139,7 +139,7 @@ const Product: NextPage =() => {
                                             />
                                         </Disclosure.Button>
                                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                                            <p>{product?.notes}</p>
+                                            <p className={'whitespace-pre-line'}>{product?.notes}</p>
                                         </Disclosure.Panel>
                                     </>
                                 )}
@@ -158,7 +158,7 @@ const Product: NextPage =() => {
                                             />
                                         </Disclosure.Button>
                                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                                            <p>{product?.dimensions}</p>
+                                            <p className={'whitespace-pre-line'}>{product?.dimensions}</p>
                                         </Disclosure.Panel>
                                     </>
                                 )}

@@ -1,13 +1,13 @@
 import type {NextPage} from 'next'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import home1 from '/public/images/home/1.webp'
 import home1Mobile from '/public/images/home/1m.webp'
 import home2 from '/public/images/home/2.webp'
 import home2Mobile from '/public/images/home/2m.webp'
-import home3 from '/public/images/home/4.webp'
-import home3Mobile from '/public/images/home/4m.webp'
-import home4 from '/public/images/home/3.webp'
-import home4Mobile from '/public/images/home/3m.webp'
+import home3 from '/public/images/home/3.webp'
+import home3Mobile from '/public/images/home/3m.webp'
+import home4 from '/public/images/home/4.webp'
+import home4Mobile from '/public/images/home/4m.webp'
 import {useState} from "react";
 import {ProductsI} from "../interfaces/product.interface";
 
@@ -18,42 +18,36 @@ const Home: NextPage = () => {
 
     return (
         <div className={'font-lora max-w-5xl m-auto'}>
-            <div className="hidden w-full aspect-[16/9] overflow-hidden relative object-left lg:block">
+            <div className="hidden w-full lg:block">
                 <Image
                     src={home1}
-                    className={'hidden lg: block'}
+                    className={'h-auto w-full'}
                     alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
-                    layout="fill"
-                    objectPosition={"left"}
-                    objectFit="cover"
+                    sizes={'100vw'}
                 />
             </div>
-            <div className="visible w-full aspect-[9/16] overflow-hidden relative object-left lg:hidden">
+            <div className="visible w-full lg:hidden">
                 <Image
                     src={home1Mobile}
-                    className={'hidden lg: block'}
+                    className={'h-auto w-full'}
                     alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
-                    layout="fill"
-                    objectPosition={"left"}
-                    objectFit="cover"
+                    sizes={'100vw'}
                 />
             </div>
-            <div className="hidden w-full aspect-[16/9] overflow-hidden relative object-left lg:block">
+            <div className="hidden w-full lg:block">
                 <Image
                     src={home2}
+                    className={'h-auto w-full'}
                     alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
-                    layout="fill"
-                    objectPosition={"left"}
-                    objectFit="cover"
+                    sizes={'100vw'}
                 />
             </div>
-            <div className="visible w-full aspect-[9/16] overflow-hidden relative object-left lg:hidden">
+            <div className="visible w-full lg:hidden">
                 <Image
                     src={home2Mobile}
+                    className={'h-auto w-full'}
                     alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
-                    layout="fill"
-                    objectPosition={"left"}
-                    objectFit="cover"
+                    sizes={'100vw'}
                 />
             </div>
             <div className="bg-white" id={"products"}>
@@ -88,50 +82,42 @@ const Home: NextPage = () => {
                 </div>
             </div>
             <div id={'mission'}>
-                <div className="hidden w-full aspect-[16/9] overflow-hidden relative object-left lg:block">
+                <div className="hidden w-full lg:block">
                     <Image
                         src={home3}
-                        className={'hidden lg: block'}
+                        className={'h-auto w-full'}
                         alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
-                        layout="fill"
-                        objectPosition={"left"}
-                        objectFit="cover"
+                        sizes={'100vw'}
                     />
                 </div>
-                <div className="visible w-full aspect-[9/16] overflow-hidden relative object-left lg:hidden">
+                <div className="visible w-full lg:hidden">
                     <Image
                         src={home3Mobile}
-                        className={'hidden lg: block'}
+                        className={'h-auto w-full'}
                         alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
-                        layout="fill"
-                        objectPosition={"left"}
-                        objectFit="cover"
+                        sizes={'100vw'}
                     />
                 </div>
             </div>
             <div id={'collaborate'}>
-                <div className="hidden w-full aspect-[16/9] overflow-hidden relative object-left lg:block">
+                <div className="hidden w-full lg:block">
                     <a href={'mailto:info@yahtzmen.com'}>
                         <Image
                             src={home4}
-                            className={'hidden lg: block'}
+                            className={'h-auto w-full'}
                             alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
-                            layout="fill"
-                            objectPosition={"left"}
-                            objectFit="cover"
+                            sizes={'100vw'}
                         />
                     </a>
 
                 </div>
-                <div className="visible w-full aspect-[9/16] overflow-hidden relative object-left lg:hidden">
+                <div className="visible w-full lg:hidden">
                     <a href={'mailto:info@yahtzmen.com'}>
                         <Image
                             src={home4Mobile}
-                            className={'hidden lg: block'}
+                            className={'h-auto w-full'}
                             alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
-                            layout="fill"
-                            objectPosition={"left"}
-                            objectFit="cover"
+                            sizes={'100vw'}
                         />
                     </a>
                 </div>
