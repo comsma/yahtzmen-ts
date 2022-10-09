@@ -15,7 +15,7 @@ export default function Navigation() {
             <nav className="mx-auto px-4 sm:px-6 lg:px-8 relative" aria-label="Top">
                 <div className="m-auto py-3">
                     <div
-                        className="grid grid-cols-1 grid-rows-2 gap-5 py-2 content-center justify-items-center h-20 m-auto w-full place-content-between lg:grid-cols-3 lg:grid-rows-1">
+                        className="grid grid-cols-1 grid-rows-2 gap-5 py-2 content-center justify-items-center min-h-20 m-auto w-full place-content-between lg:grid-cols-3 lg:grid-rows-1">
                         <div className={'hidden relative lg:flex'}>
                             <div className={'w-96 cursor-pointer'}>
                                 <Link href={'/'}>
@@ -42,12 +42,15 @@ export default function Navigation() {
                             </div>
 
                         </div>
-                        <div className="space-x-8 lg:inline-flex items-center">
+                        <div className="relative space-x-8 flex flex-row">
                             {navigation.map((link) => (
-                                <a key={link.name} href={link.href}
-                                   className="py-3 font-light text-md hover:text-orange-yellow-crayola md:text-lg lg:text-xl">
-                                    {link.name}
-                                </a>
+                                <div className={'items-center'}>
+                                    <a key={link.name} href={link.href}
+                                       className="py-3 font-light text-md hover:text-orange-yellow-crayola md:text-lg lg:text-xl">
+                                        {link.name}
+                                    </a>
+                                </div>
+
                             ))}
                         </div>
 
