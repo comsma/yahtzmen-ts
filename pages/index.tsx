@@ -8,14 +8,16 @@ import home3 from '/public/images/home/3.webp'
 import home3Mobile from '/public/images/home/3m.webp'
 import home4 from '/public/images/home/4.webp'
 import home4Mobile from '/public/images/home/4m.webp'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {ProductsI} from "../interfaces/product.interface";
 
 const Home: NextPage = () => {
     const [products, setProducts] = useState<ProductsI[]>()
-    fetch('https://api.yahtzmen.com/product/list', {method: 'GET'})
-        .then((r) => r.json()).then(r => setProducts(r))
 
+    useEffect(() => {
+        fetch('https://api.yahtzmen.com/product/list', {method: 'GET'})
+            .then((r) => r.json()).then(r => setProducts(r))
+    }, [])
     return (
         <div className={'font-lora max-w-5xl m-auto'}>
             <div className="hidden w-full lg:block">
