@@ -2,12 +2,12 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Layout from "../components/Layout";
 import Head from "next/head";
-import TagManager from 'react-gtm-module'
 import {useEffect} from "react";
+import posthog from 'posthog-js'
 
 function MyApp({ Component, pageProps }: AppProps) {
     useEffect(()=>{
-        TagManager.initialize({gtmId: 'GTM-T7JPXQZ'})
+        posthog.init('phc_pFnFXZeZc6SJGSgNVcre63wttkMhYMAuqRHfWGvOKFp', { api_host: 'https://app.posthog.com' })
     },[])
   return (
       <>
