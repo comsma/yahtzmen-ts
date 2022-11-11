@@ -6,6 +6,9 @@ import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import {ProductsI} from "../interfaces/product.interface";
 import {ChevronDownIcon, ChevronUpIcon} from "@heroicons/react/24/solid";
 import Image from "next/image";
+import {useAppDispatch} from "../app/hooks";
+import {addItem} from "../features/cartSlice";
+import {Spinner} from "../components/Spinner";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -13,9 +16,23 @@ function classNames(...classes: string[]) {
 
 const Product: NextPage =() => {
     const router = useRouter();
+    const dispatch = useAppDispatch();
 
     const [product, setProduct] = useState<ProductsI>()
 
+
+
+    function addToCart() {
+        if (product) {
+            dispatch(addItem({
+                itemId: product.id,
+                name: product.name,
+                itemImg: product.images[0].imageUrl,
+                itemQty: 1,
+                price: product.price
+            }))
+        }
+    }
     async function checkout(productId: string): Promise<void> {
         const res = await fetch('https://api.yahtzmen.com/order/checkout', {
             headers: {
@@ -37,9 +54,8 @@ const Product: NextPage =() => {
     }, [router.isReady])
 
     return (
-
         <div className="bg-white font-lora">
-            {product ?
+            {product?.images ?
             <div className={'grid grid-cols-1 lg:grid-cols-3 max-w-7xl m-auto'}>
                 <div className={'col-span-2 my-5'}>
                     <Tab.Group as="div" className="col-span-1 mx-10 max-w-5xl flex flex-col-reverse items-stretch lg:flex-row">
@@ -100,7 +116,7 @@ const Product: NextPage =() => {
                             </div>
                         </div>
                         <div className={'self-center w-full'}>
-                            <button onClick={() => checkout(product.id)} className={'py-2 w-full py-2 my-5 text-center text-lg font-bold bg-oxford-blue text-golden-rod rounded-md hover:bg-golden-rod hover:text-white'}>Buy Now</button>
+                            <button onClick={() => addToCart()} className={'py-2 w-full py-2 my-5 text-center text-lg font-bold bg-oxford-blue text-golden-rod rounded-md hover:bg-golden-rod hover:text-white'}>Buy Now</button>
                         </div>
                         <div className={'my-5 border-t-2 border-gray-200'}>
                             <Disclosure>
@@ -170,7 +186,7 @@ const Product: NextPage =() => {
             </div>
                 :
             <div>
-                <h1>Product was not found</h1>
+                <Spinner />
             </div>}
         </div>
 

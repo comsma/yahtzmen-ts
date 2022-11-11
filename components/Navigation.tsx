@@ -1,59 +1,67 @@
 import Image from "next/image";
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 import Link from "next/link";
+import {useAppSelector} from "../app/hooks";
 const navigation = [
-    {name: 'Products', href: '/#products'},
-
+    {name: 'Products', href: '/#product'},
     {name: 'Our Mission', href: '/#mission'},
     {name: 'Lets Collaborate', href: '/#collaborate'},
 ]
 
 export default function Navigation() {
-
+    const cart = useAppSelector(state => state.items)
     return (
-        <header className="bg-oxford-blue font-lora text-golden-rod sticky top-0 z-50">
+        <header className="bg-oxford-blue font-lora text-golden-rod top-0 sticky z-50">
             <nav className="mx-auto px-4 sm:px-6 lg:px-8 relative" aria-label="Top">
-                <div className="m-auto py-3">
+                <div className="m-auto py-3 ">
                     <div
-                        className="grid grid-cols-1 grid-rows-2 gap-5 py-2 content-center justify-items-center min-h-20 m-auto w-full place-content-between lg:grid-cols-3 lg:grid-rows-1">
-                        <div className={'hidden relative lg:flex'}>
-                            <div className={'w-96 cursor-pointer'}>
-                                <Link href={'/'}>
+                        className="grid grid-cols-1 grid-rows-3 justify-items-center gap-5 py-2 min-h-20 m-auto w-full lg:grid-cols-7 lg:grid-rows-1"
+                    >
+                        <div className={'hidden col-span-3 lg:flex'}>
+                            <Link href={'/'}>
+                                <div className={'relative w-96'}>
                                     <Image
-                                        layout={'fill'}
                                         objectFit={'contain'}
+                                        layout={'fill'}
                                         src="https://yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com/name-logo.webp"
                                         alt="Yahtmen Furnishings"
                                     />
-                                </Link>
-
-                            </div>
+                                </div>
+                            </Link>
                         </div>
-                        <div className={'relative'}>
-                            <div className={'w-96 cursor-pointer'}>
-                                <Link href={'/'}>
+                        <div className={'flex col-start-0 col-span-1 lg:col-start-4'}>
+                            <Link href={'/'}>
+                                <div className={'relative w-96'}>
                                     <Image
-                                        layout={'fill'}
                                         objectFit={'contain'}
+                                        layout={'fill'}
                                         src="https://yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com/logo.webp"
                                         alt="Yahtzmen YF logo"
                                     />
-                                </Link>
-                            </div>
-
-                        </div>
-                        <div className="relative space-x-8 flex flex-row">
-                            {navigation.map((link) => (
-                                <div className={'items-center'}>
-                                    <a key={link.name} href={link.href}
-                                       className="py-3 font-light text-md hover:text-orange-yellow-crayola md:text-lg lg:text-xl">
-                                        {link.name}
-                                    </a>
                                 </div>
-
-                            ))}
+                            </Link>
                         </div>
+                        <div className="col-span-1 row-start-2 lg:col-span-2 lg:row-start-1 lg:col-start-5">
+                            <div className={'flex flex-row gap-x-6'}>
+                                {navigation.map((link) => (
+                                    <div className={'items-center'} key={link.name}>
+                                        <Link href={link.href}
+                                              className="py-3 font-light text-md hover:text-orange-yellow-crayola md:text-lg lg:text-xl">
+                                            {link.name}
+                                        </Link>
+                                    </div>
 
+                                ))}
+                            </div>
+                        </div>
+                        <div className={'col-start-0 row-start-3 col-span-1 lg:row-start-1 lg:col-start-7'}>
+                            <Link href={'/Checkout'}>
+                                <div>
+                                    <ShoppingCartIcon className={'h-5 w-5 '}/>
+                                    {cart.length}
+                                </div>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </nav>
