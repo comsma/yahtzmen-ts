@@ -4,8 +4,7 @@ const nextConfig = {
         domains: ['yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com', 'yahtzmen-storage.nyc3.digitaloceanspaces.com']
     },
     reactStrictMode: true,
-    swcMinify: true,
-    experimental: { images: { allowFutureImage: true } }
+    swcMinify: true
 }
 
 module.exports = nextConfig
