@@ -1,11 +1,12 @@
 import {ProductsI} from "../interfaces/product.interface";
 import useSWR from 'swr'
 import Link from "next/link";
+import Image from 'next/image'
 
 const fetcher = (url: RequestInfo | URL) => fetch(url).then((res) => res.json());
 
 export const ProductGrid =() => {
-    const { data, error } = useSWR<ProductsI[]>('/api/product', fetcher)
+    const { data, error } = useSWR<ProductsI[]>('https://api.yahtzmen.com/product/list', fetcher)
     if (error) return <div>An error occured.</div>
     if (!data) return <div>Loading ...</div>
 
@@ -20,11 +21,12 @@ export const ProductGrid =() => {
                             <Link href={`/Product?id=${product.id}`}>
                                 <div>
                                     <div
-                                        className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                                        <img
+                                        className="relative w-full min-h-80 bg-gray-200 aspect-square rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                                        <Image
                                             src={product.images[0].imageUrl}
                                             alt={product.name}
-                                            className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                                            layout={'fill'}
+                                            objectFit={'cover'}
                                         />
                                     </div>
                                     <div className="mt-4 flex justify-between">

@@ -71,7 +71,15 @@ const Product: NextPage =() => {
                                             <>
                                                 <span className="sr-only"> {image.imageUrl} </span>
                                                 <span className="absolute inset-0 overflow-hidden rounded-md">
-                                                <img src={image.imageUrl} alt="" className="h-full w-full object-cover object-center" />
+                                                    <div className={'relative aspect-square'}>
+                                                        <Image
+                                                            src={image.imageUrl}
+                                                            layout={'fill'}
+                                                            objectFit={'cover'}
+                                                            alt=""
+                                                        />
+                                                    </div>
+
                                             </span>
                                                 <span
                                                     className={classNames(
@@ -89,11 +97,13 @@ const Product: NextPage =() => {
                         <Tab.Panels className="w-full h-full my-3 px-6 self-stretch justify-self-stretch">
                             {product?.images.map((image) => (
                                 <Tab.Panel key={image.imageUrl}>
-                                    <div >
-                                        <img
-                                            className="relative w-full h-full object-cover object-center rounded-lg"
+                                    <div className={'relative aspect-square rounded-lg overflow-clip'} >
+                                        <Image
                                             src={image.imageUrl}
                                             alt={image.imageUrl}
+                                            layout={'fill'}
+                                            objectFit={'cover'}
+
 
                                         />
                                     </div>

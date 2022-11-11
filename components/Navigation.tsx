@@ -22,10 +22,9 @@ export default function Navigation() {
                             <Link href={'/'}>
                                 <div className={'relative w-96'}>
                                     <Image
-                                        loader={cloudflareLoader}
                                         objectFit={'contain'}
                                         layout={'fill'}
-                                        src="https://yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com/name-logo.webp"
+                                        src={`${process.env.publicCdn}/name-logo.webp`}
                                         alt="Yahtmen Furnishings"
                                     />
                                 </div>
@@ -35,10 +34,9 @@ export default function Navigation() {
                             <Link href={'/'}>
                                 <div className={'relative w-96'}>
                                     <Image
-                                        loader={cloudflareLoader}
                                         objectFit={'contain'}
                                         layout={'fill'}
-                                        src="https://yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com/logo.webp"
+                                        src={`${process.env.publicCdn}/logo.webp`}
                                         alt="Yahtzmen YF logo"
                                     />
                                 </div>
