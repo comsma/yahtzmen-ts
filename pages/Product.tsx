@@ -133,7 +133,7 @@ const Product: NextPage =() => {
                                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
                                             <ul>
                                                 {product?.features.map(feature => (
-                                                    <li>
+                                                    <li key={feature}>
                                                         {feature}
                                                     </li>
                                                 ))}

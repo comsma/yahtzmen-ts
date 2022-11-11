@@ -15,7 +15,7 @@ const Checkout: NextPage =() => {
         <div className={'min-h-screen'}>
             <h1 className={'py-5 font-bold text-3xl text-center '}> Checkout </h1>
             {cart?.map((item) => (
-                <div className={'mx-auto my-5 p-5 max-w-3xl flex flex-row bg-gray-200 rounded-xl'}>
+                <div className={'mx-auto my-5 p-5 max-w-3xl flex flex-row bg-gray-200 rounded-xl'} key={item.itemId}>
                     <div className={'grid grid-cols-3 place-items-center'}>
                         <div className={'col-span-1'}>
                             <p>{item.name}</p>
