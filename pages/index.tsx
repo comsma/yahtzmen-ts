@@ -10,6 +10,7 @@ import home4 from '/public/images/home/4.webp'
 import home4Mobile from '/public/images/home/4m.webp'
 import {ProductGrid} from "../components/ProductGrid";
 import {useRouter} from "next/router";
+import {cloudflareLoader} from "../helpers/cloudflare.image";
 
 
 const Home: NextPage = () => {
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
                     <div className="hidden relative aspect-[16/9] sm:flex">
                         <Image
                         src={home1}
+                        loader={cloudflareLoader}
                         layout={'fill'}
                         objectFit={'contain'}
                         alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
@@ -29,6 +31,7 @@ const Home: NextPage = () => {
                     <div className="visible relative aspect-[11/16] sm:hidden">
                         <Image
                         src={home1Mobile}
+                        loader={cloudflareLoader}
                         layout={'fill'}
                         objectFit={'cover'}
                         alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
@@ -39,6 +42,7 @@ const Home: NextPage = () => {
                     <div className="hidden relative aspect-[16/9] sm:flex">
                         <Image
                             src={home2}
+                            loader={cloudflareLoader}
                             layout={'fill'}
                             objectFit={'contain'}
                             alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
@@ -47,6 +51,7 @@ const Home: NextPage = () => {
                     <div className="visible relative aspect-[11/16] sm:hidden">
                         <Image
                             src={home2Mobile}
+                            loader={cloudflareLoader}
                             layout={'fill'}
                             objectFit={'cover'}
                             alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
@@ -60,6 +65,7 @@ const Home: NextPage = () => {
                     <div className="hidden relative aspect-[16/9] sm:block">
                         <Image
                             src={home3}
+                            loader={cloudflareLoader}
                             layout={'fill'}
                             objectFit={'cover'}
                             alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
@@ -68,6 +74,7 @@ const Home: NextPage = () => {
                     <div className="visible relative aspect-[11/16] sm:hidden">
                         <Image
                             src={home3Mobile}
+                            loader={cloudflareLoader}
                             layout={'fill'}
                             objectFit={'cover'}
                             alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
@@ -82,6 +89,7 @@ const Home: NextPage = () => {
                         <div className="hidden relative aspect-[16/9] sm:block">
                             <Image
                                 src={home4}
+                                loader={cloudflareLoader}
                                 layout={'fill'}
                                 objectFit={'cover'}
                                 alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
@@ -91,6 +99,7 @@ const Home: NextPage = () => {
                         <div className="visible relative aspect-[8/16] sm:hidden">
                             <Image
                                 src={home4Mobile}
+                                loader={cloudflareLoader}
                                 layout={'fill'}
                                 objectFit={'cover'}
                                 alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 import Link from "next/link";
 import {useAppSelector} from "../app/hooks";
+import {cloudflareLoader} from "../helpers/cloudflare.image";
 const navigation = [
     {name: 'Products', href: '/#product'},
     {name: 'Our Mission', href: '/#mission'},
@@ -21,6 +22,7 @@ export default function Navigation() {
                             <Link href={'/'}>
                                 <div className={'relative w-96'}>
                                     <Image
+                                        loader={cloudflareLoader}
                                         objectFit={'contain'}
                                         layout={'fill'}
                                         src="https://yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com/name-logo.webp"
@@ -33,6 +35,7 @@ export default function Navigation() {
                             <Link href={'/'}>
                                 <div className={'relative w-96'}>
                                     <Image
+                                        loader={cloudflareLoader}
                                         objectFit={'contain'}
                                         layout={'fill'}
                                         src="https://yahtzmen-storage.nyc3.cdn.digitaloceanspaces.com/logo.webp"
