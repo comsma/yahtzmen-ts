@@ -2,8 +2,8 @@ import { PrismaClient } from '@prisma/client'
 import {NextApiRequest, NextApiResponse} from "next";
 const prisma = new PrismaClient()
 
-export default async function handle(req: NextApiRequest, res: NextApiResponse) {
-    const products =  await prisma.product.findMany({
+const products = async (req: NextApiRequest, res: NextApiResponse) => {
+    const products = await prisma.product.findMany({
         select: {
             id: true,
             name: true,
@@ -16,4 +16,11 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     return res.json(products);
 
 }
+
+export default products;
+
+export const config = {
+    runtime: 'experimental-edge',
+};
+
 
