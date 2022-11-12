@@ -57,9 +57,10 @@ export default function Navigation() {
                         </div>
                         <div className={'col-start-0 row-start-3 col-span-1 lg:row-start-1 lg:col-start-7'}>
                             <Link href={'/Checkout'}>
-                                <div>
-                                    <ShoppingCartIcon className={'h-5 w-5 '}/>
-                                    {cart.length}
+                                <div className={'relative inline-block'}>
+                                    <ShoppingCartIcon className={'h-10 w-10 '}/>
+                                    <span className={'absolute top-0 right-0 h-4 w-4 p-2 flex items-center justify-center bg-golden-rod text-oxford-blue text-[10px] font-bold rounded-full border-2 border-oxford-blue'}>{cart.length}</span>
+
                                 </div>
                             </Link>
                         </div>

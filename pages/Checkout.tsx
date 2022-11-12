@@ -1,15 +1,39 @@
 import {useAppDispatch, useAppSelector} from "../app/hooks";
 import {NextPage} from "next";
-import {Fragment} from "react";
+import {Fragment, useEffect, useState} from "react";
 import {TrashIcon} from "@heroicons/react/24/solid";
 import {removeItem} from "../features/cartSlice";
 import {MinusCircleIcon, PlusCircleIcon} from "@heroicons/react/20/solid";
 import Image from "next/image";
 import {ShoppingBagIcon} from "@heroicons/react/24/outline";
+import CheckoutForm from "../components/CheckoutForm";
+import {loadStripe, StripeElementsOptions} from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const stripePromise = loadStripe('pk_live_51LR2GAJ0ME8OZdmfeJBPDuUmrpqJNpsD6bg9SGxPhIVm5MdYOPevriRkjb5ekpUnIUQ6zYj4YGqnWWXpGlq7vzGC00865VCWz7');
 
 const Checkout: NextPage =() => {
     const cart = useAppSelector(state => state.items)
     const dispactch = useAppDispatch();
+    const [clientSecret, setClientSecret] =useState("");
+
+    const options: StripeElementsOptions = {
+        clientSecret,
+        appearance: {
+            theme: 'night'
+        }
+    };
+
+    useEffect(() => {
+        // Create PaymentIntent as soon as the page loads
+        fetch("/api/create-payment-intent", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+        })
+            .then((res) => res.json())
+            .then((data) => setClientSecret(data.clientSecret));
+    }, []);
 
     if (cart.length >= 1) return (
         <div className={'min-h-screen'}>
@@ -42,6 +66,11 @@ const Checkout: NextPage =() => {
 
                 </div>
             ))}
+            {clientSecret && (
+                <Elements options={options} stripe={stripePromise}>
+                    <CheckoutForm />
+                </Elements>
+            )}
         </div>
     )
 
