@@ -9,6 +9,7 @@ import {ShoppingBagIcon} from "@heroicons/react/24/outline";
 import CheckoutForm from "../components/CheckoutForm";
 import {loadStripe, StripeElementsOptions} from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import {CartItem} from "../components/checkout/CartItem";
 
 const stripePromise = loadStripe('pk_live_51LR2GAJ0ME8OZdmfeJBPDuUmrpqJNpsD6bg9SGxPhIVm5MdYOPevriRkjb5ekpUnIUQ6zYj4YGqnWWXpGlq7vzGC00865VCWz7');
 
@@ -39,32 +40,7 @@ const Checkout: NextPage =() => {
         <div className={'min-h-screen'}>
             <h1 className={'py-5 font-bold text-3xl text-center '}> Checkout </h1>
             {cart?.map((item) => (
-                <div className={'mx-auto my-5 p-5 max-w-3xl grid grid-cols-5 grid-rows-1 bg-gray-200 rounded-xl'} key={item.itemId}>
-                    <div className={'col-span-3 grid grid-cols-3 place-items-center'}>
-                        <div className={'col-span-1'}>
-                            <p>{item.name}</p>
-                        </div>
-                        <div className={'col-span-1 grid grid-cols-3 place-items-center'}>
-                            <MinusCircleIcon className={'w-5 h-5'} />
-                            <p>{item.itemQty}</p>
-                            <PlusCircleIcon className={'w-5 h-5'} />
-                        </div>
-                        <div className={'col-span-1'}>
-                            <TrashIcon className={'w-4 h-4'} onClick={() => dispactch(removeItem(item.itemId))}/>
-                        </div>
-                    </div>
-
-                    <div className={'col-start-4 col-span-1 ml-auto relative min-h-80 w-full aspect-square rounded-md overflow-clip'}>
-                        <Image
-                            layout={'fill'}
-                            objectFit={'cover'}
-                            src={item.itemImg}
-                            alt={item.name}
-                        />
-                    </div>
-
-
-                </div>
+                <CartItem key={item.itemId} {...item} />
             ))}
             {clientSecret && (
                 <Elements options={options} stripe={stripePromise}>
