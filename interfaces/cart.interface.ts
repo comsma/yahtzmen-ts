@@ -11,4 +11,9 @@ interface CartItemI {
     price: number
 }
 
-export type {CartI, CartItemI}
+interface RequestItemI {
+    id: string,
+    qty: number
+}
+
+export type {CartI, CartItemI, RequestItemI}

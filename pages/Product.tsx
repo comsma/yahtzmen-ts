@@ -9,27 +9,30 @@ import Image from "next/image";
 import {useAppDispatch} from "../app/hooks";
 import {addItem} from "../features/cartSlice";
 import {Spinner} from "../components/Spinner";
+import useSWR from "swr";
+import {fetcher} from "../helpers/fetcher";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
 const Product: NextPage =() => {
-    const router = useRouter();
     const dispatch = useAppDispatch();
+    const router = useRouter();
+    const { id } = router.query;
 
-    const [product, setProduct] = useState<ProductsI>()
+    const { data, error } = useSWR<ProductsI>(`/api/product/${id}`, fetcher)
 
 
 
     function addToCart() {
-        if (product) {
+        if (data) {
             dispatch(addItem({
-                itemId: product.id,
-                name: product.name,
-                itemImg: product.images[0].imageUrl,
+                itemId: data.id,
+                name: data.name,
+                itemImg: data.images[0].imageUrl,
                 itemQty: 1,
-                price: product.price
+                price: data.price
             }))
         }
     }
@@ -46,23 +49,16 @@ const Product: NextPage =() => {
         window.location.href = body.url
     }
 
-    useEffect(() => {
-        if (router.isReady) {
-            const { id } = router.query;
-            fetch(`https://api.yahtzmen.com/product/id/${id}`).then(r => r.json()).then(r => setProduct(r))
-        }
-    }, [router.isReady])
-
     return (
         <div className="bg-white font-lora">
-            {product?.images ?
+            {data?.images ?
             <div className={'grid grid-cols-1 lg:grid-cols-3 max-w-7xl m-auto'}>
                 <div className={'col-span-2 my-5'}>
                     <Tab.Group as="div" className="col-span-1 mx-10 max-w-5xl flex flex-col-reverse items-stretch lg:flex-row">
                         {/* Image selector */}
                         <div className="w-full flex-none lg:w-20">
                             <Tab.List className="flex flex-row justify-around lg:flex-col ">
-                                {product?.images.map((image) => (
+                                {data?.images.map((image) => (
                                     <Tab
                                         key={image.imageUrl}
                                         className="my-5 relative flex aspect-square max-h-20 h-12 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4 lg:h-20"
@@ -74,8 +70,7 @@ const Product: NextPage =() => {
                                                     <div className={'relative aspect-square'}>
                                                         <Image
                                                             src={image.imageUrl}
-                                                            layout={'fill'}
-                                                            objectFit={'cover'}
+                                                            fill={true}
                                                             alt=""
                                                         />
                                                     </div>
@@ -95,14 +90,13 @@ const Product: NextPage =() => {
                             </Tab.List>
                         </div>
                         <Tab.Panels className="w-full h-full my-3 px-6 self-stretch justify-self-stretch">
-                            {product?.images.map((image) => (
+                            {data?.images.map((image) => (
                                 <Tab.Panel key={image.imageUrl}>
                                     <div className={'relative aspect-square rounded-lg overflow-clip'} >
                                         <Image
                                             src={image.imageUrl}
                                             alt={image.imageUrl}
-                                            layout={'fill'}
-                                            objectFit={'cover'}
+                                            fill={true}
 
 
                                         />
@@ -117,16 +111,21 @@ const Product: NextPage =() => {
                 </div>
                 {/* Product info */}
                 <div className="col-span-1 mx-auto max-w-2xl px-4 pt-10 flex flex-col ">
-                    <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product?.name}</h1>
-                    <p className="py-3 text-3xl tracking-tight text-gray-900">${product?.price}</p>
+                    <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{data?.name}</h1>
+                    <p className="py-3 text-3xl tracking-tight text-gray-900">${data?.price}</p>
                     <div className="py-10 flex flex-col">
                         <div className={'py-10'}>
                             <div className="space-y-6">
-                                <p className="text-base text-gray-900 whitespace-pre-line">{product?.description}</p>
+                                <p className="text-base text-gray-900 whitespace-pre-line">{data?.description}</p>
                             </div>
                         </div>
                         <div className={'self-center w-full'}>
-                            <button onClick={() => addToCart()} className={'py-2 w-full py-2 my-5 text-center text-lg font-bold bg-oxford-blue text-golden-rod rounded-md hover:bg-golden-rod hover:text-white'}>Buy Now</button>
+                            <button
+                                onClick={() => addToCart()}
+                                className={'py-2 w-full py-2 my-5 text-center text-lg font-bold bg-blue-800 text-golden-rod rounded-md hover:bg-golden-rod hover:text-white'}
+                            >
+                                Add to Cart
+                            </button>
                         </div>
                         <div className={'my-5 border-t-2 border-gray-200'}>
                             <Disclosure>
@@ -142,7 +141,7 @@ const Product: NextPage =() => {
                                         </Disclosure.Button>
                                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
                                             <ul>
-                                                {product?.features.map(feature => (
+                                                {data?.features.map(feature => (
                                                     <li key={feature}>
                                                         {feature}
                                                     </li>
@@ -152,7 +151,7 @@ const Product: NextPage =() => {
                                     </>
                                 )}
                             </Disclosure>
-                            {product?.notes ?
+                            {data?.notes ?
                             <Disclosure>
                                 {({ open }) => (
                                     <>
@@ -165,7 +164,7 @@ const Product: NextPage =() => {
                                             />
                                         </Disclosure.Button>
                                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                                            <p className={'whitespace-pre-line'}>{product?.notes}</p>
+                                            <p className={'whitespace-pre-line'}>{data?.notes}</p>
                                         </Disclosure.Panel>
                                     </>
                                 )}
@@ -184,7 +183,7 @@ const Product: NextPage =() => {
                                             />
                                         </Disclosure.Button>
                                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                                            <p className={'whitespace-pre-line'}>{product?.dimensions}</p>
+                                            <p className={'whitespace-pre-line'}>{data?.dimensions}</p>
                                         </Disclosure.Panel>
                                     </>
                                 )}

@@ -3,7 +3,7 @@ import {NextPage} from "next";
 const Privacy: NextPage =() => {
     return(
         <>
-            <div className={'bg-oxford-blue text-white leading-relaxed'}>
+            <div className={'bg-blue-800 text-white leading-relaxed'}>
                 <div className={'m-auto p-5 font-lora max-w-5xl'}>
                     <h1 className={'font-bold text-2xl'}>Privacy Policy of Yahtzmen Furnishings</h1>
 

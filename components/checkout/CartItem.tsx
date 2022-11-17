@@ -14,6 +14,7 @@ export const CartItem =(item: CartItemI) => {
                 <div className={'col-span-3 grid grid-cols-3 place-items-center'}>
                     <div className={'col-span-1'}>
                         <p>{item.name}</p>
+                        <p>{item.price}</p>
                     </div>
                     <div className={'col-span-1 grid grid-cols-3 place-items-center'}>
                         <MinusCircleIcon onClick={() => dispactch(decrementItem(item.itemId))} className={'w-5 h-5'} />

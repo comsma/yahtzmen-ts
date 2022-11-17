@@ -10,6 +10,9 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
             name: true,
             price: true,
             images: {
+                where: {
+                    sequenceNumber: 0
+                },
                 take: 1
             }
         }

@@ -14,7 +14,6 @@ model product {
   id          String          @id @default(auto()) @map("_id") @db.ObjectId
   name        String          @unique
   description String
-  stripeId    String
   price       Int
   features    String[]
   notes       String?
@@ -28,4 +27,12 @@ model productImages {
   productId      String
   sequenceNumber Int
   product        product @relation(fields: [productId], references: [id])
+}
+model order {
+  id             String  @id @default(auto()) @map("_id") @db.ObjectId
+  ShipName String
+  ShipAdd1 String
+  ShipAdd2 String
+  ShipAddPostal String
+
 }
