@@ -65,9 +65,23 @@ export default async function handlePost(req: NextApiRequest, res: NextApiRespon
     //Creates a stripe checkout session with provided items
     const session = await stripe.checkout.sessions.create({
         line_items: lineItems,
+        shipping_address_collection: {allowed_countries: ['US', 'CA']},
+        shipping_options: [
+            {
+                shipping_rate_data: {
+                    type: 'fixed_amount',
+                    fixed_amount: {amount: 0, currency: 'usd'},
+                    display_name: 'Free shipping',
+                    delivery_estimate: {
+                        minimum: {unit: 'business_day', value: 7},
+                        maximum: {unit: 'business_day', value: 14},
+                    },
+                },
+            },
+        ],
         mode: 'payment',
-        success_url: 'https://example.com/success',
-        cancel_url: 'https://yahtzmen.com/Cart',
+        success_url: `${process.env.VERCEL_URL}/Order/Success`,
+        cancel_url: `${process.env.VERCEL_URL}/Cart`,
     })
 
     res.send( { 'url': session.url });

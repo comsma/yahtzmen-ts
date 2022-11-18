@@ -1,4 +1,4 @@
-import {useAppDispatch, useAppSelector} from "../app/hooks";
+import {useAppSelector} from "../app/hooks";
 import {NextPage} from "next";
 import {ShoppingBagIcon} from "@heroicons/react/24/outline";
 import {CartItem} from "../components/checkout/CartItem";
@@ -10,7 +10,6 @@ import {useRouter} from "next/router";
 const Cart: NextPage =() => {
     const router = useRouter();
     const cart = useAppSelector(state => state.items)
-    const dispactch = useAppDispatch();
 
     async function loadSession(): Promise<void> {
         let request: RequestItemI[] = []
@@ -38,20 +37,25 @@ const Cart: NextPage =() => {
     if (cart.length >= 1) return (
         <div className={'min-h-screen'}>
             <h1 className={'py-5 font-bold text-3xl text-center '}> Checkout </h1>
-            <div className={'mx-5 grid grid-cols-3 grid-gap-5'}>
-                <div className={'col-span-3 lg:col-span-2'}>
+            <div className={'mx-5 p-5 grid grid-cols-3 gap-5 items-start'}>
+                <div className={'col-span-3 flex flex-col gap-y-5 lg:col-span-2'}>
                     {cart?.map((item) => (
                         <CartItem key={item.itemId} {...item} />
                     ))}
                 </div>
-                <div className={'col-span-1 bg-blue-800 rounded-md flex flex-col justify-items-center'}>
+                <div className={'col-span-3 min-h-[50vh] bg-blue-800 text-golden-rod rounded-md flex flex-col items-center lg:col-span-1'}>
+                    {/*TODO: Properly calculate cart total*/}
                     <div>
+                        <span>Subtotal</span>
+                        <span>$100</span>
 
                     </div>
-                    <button className={'mx-auto py-2 w-1/2 my-5 text-center text-blue-800text-lg font-bold bg-golden-rod rounded-md hover:bg-blue-800 hover:text-white'}
-                        onClick={() => loadSession()}>
-                        Start Checkout
-                    </button>
+                    <div className={'mt-auto'}>
+                        <button className={'mx-auto py-2 px-10 my-5 text-center text-blue-800 text-lg font-bold bg-golden-rod rounded-md hover:bg-blue-800 hover:text-white'}
+                                onClick={() => loadSession()}>
+                            Start Checkout
+                        </button>
+                    </div>
                 </div>
             </div>
 
