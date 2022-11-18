@@ -80,8 +80,8 @@ export default async function handlePost(req: NextApiRequest, res: NextApiRespon
             },
         ],
         mode: 'payment',
-        success_url: `https://${process.env.VERCEL_URL}/Order/Success`,
-        cancel_url: `https://${process.env.VERCEL_URL}/Cart`,
+        success_url: `https://${process.env.HOST_URL}`,
+        cancel_url: `https://${process.env.HOST_URL}Cart`,
     })
 
     res.send( { 'url': session.url });
