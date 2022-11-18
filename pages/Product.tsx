@@ -97,8 +97,6 @@ const Product: NextPage =() => {
                                             src={image.imageUrl}
                                             alt={image.imageUrl}
                                             fill={true}
-
-
                                         />
                                     </div>
 

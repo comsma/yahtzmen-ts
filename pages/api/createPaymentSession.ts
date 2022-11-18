@@ -55,7 +55,7 @@ export default async function handlePost(req: NextApiRequest, res: NextApiRespon
                         name: data.name,
                         images: [data.images[0].imageUrl]
                     },
-                    unit_amount: data.price,
+                    unit_amount: data.price * 100,
                 },
                 quantity: item.qty
             })
@@ -80,8 +80,8 @@ export default async function handlePost(req: NextApiRequest, res: NextApiRespon
             },
         ],
         mode: 'payment',
-        success_url: `https://${process.env.HOST_URL}`,
-        cancel_url: `https://${process.env.HOST_URL}Cart`,
+        success_url: `${process.env.HOST_URL}Order/Success`,
+        cancel_url: `${process.env.HOST_URL}Cart`,
     })
 
     res.send( { 'url': session.url });

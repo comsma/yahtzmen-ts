@@ -19,7 +19,7 @@ const navigation = {
             ),
         },
         {
-            name: 'Instagram',
+            name: 'Facebook',
             href: 'https://www.instagram.com/yahtzmen/',
             icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
                 <svg xmlns="http://www.w3.org/2000/svg" fill={'currentColor'} viewBox="0 0 512 512" {...props}>
