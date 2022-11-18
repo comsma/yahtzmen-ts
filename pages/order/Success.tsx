@@ -6,3 +6,5 @@ const Success: NextPage =() => {
         </>
     )
 }
+
+export default Success
