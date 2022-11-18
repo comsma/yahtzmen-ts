@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next",
     "ngrok": "ngrok http 3000",
-    "build": "next build  && npm run prisma:build",
+    "build": "npm run prisma:build && next build",
     "start": "next start",
     "lint": "next lint",
     "prisma:build": "npx prisma generate"
