@@ -47,7 +47,7 @@ const Cart: NextPage =() => {
 
     if (cart.length >= 1) return (
         <div className={'min-h-screen'}>
-            <h1 className={'py-5 font-bold text-5xl text-left '}> Checkout </h1>
+            <h1 className={'mx-5 p-5 font-bold text-5xl text-left '}> Checkout </h1>
             <div className={'mx-5 p-5 grid grid-cols-4 gap-5 items-start'}>
                 <div className={'col-span-full flex flex-col gap-y-5 lg:col-span-2'}>
                     {cart?.map((item) => (
