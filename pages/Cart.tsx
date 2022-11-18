@@ -44,8 +44,12 @@ const Cart: NextPage =() => {
                         <CartItem key={item.itemId} {...item} />
                     ))}
                 </div>
-                <div className={'col-span-1 bg-blue-800 rounded-md'}>
-                    <button onClick={() => loadSession()}>
+                <div className={'col-span-1 bg-blue-800 rounded-md flex flex-col justify-items-center'}>
+                    <div>
+
+                    </div>
+                    <button className={'mx-auto py-2 w-1/2 my-5 text-center text-blue-800text-lg font-bold bg-golden-rod rounded-md hover:bg-blue-800 hover:text-white'}
+                        onClick={() => loadSession()}>
                         Start Checkout
                     </button>
                 </div>
