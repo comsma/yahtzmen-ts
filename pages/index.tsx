@@ -17,7 +17,7 @@ const Home: NextPage = () => {
     return (
         <div className={'bg-blue-800 py-10 z-0'}>
             <div className={'font-lora max-w-5xl mx-auto px-5 lg:px-0'}>
-                <div className={'my-10 rounded-lg overflow-hidden shadow-xl shadow-golden-rod/30 '}>
+                <div className={'rounded-lg overflow-hidden shadow-xl shadow-golden-rod/30 '}>
                     <div className="hidden relative aspect-[16/9] sm:flex">
                         <Image
                         src={home1}
