@@ -8,7 +8,7 @@
     "build": "npm run prisma:build && next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma:build": "npx prisma generate"
+    "prisma:build": "npx prisma generate --data-proxy"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.3",
