@@ -15,22 +15,18 @@ import {useRouter} from "next/router";
 const Home: NextPage = () => {
     const router = useRouter()
     return (
-        <div className={'bg-oxford-blue py-10 z-0'}>
+        <div className={'bg-blue-800 py-10 z-0'}>
             <div className={'font-lora max-w-5xl mx-auto px-5 lg:px-0'}>
-                <div className={'my-10 rounded-lg overflow-hidden shadow-xl shadow-golden-rod/30 '}>
+                <div className={'rounded-lg overflow-hidden shadow-xl shadow-golden-rod/30 '}>
                     <div className="hidden relative aspect-[16/9] sm:flex">
                         <Image
                         src={home1}
-                        layout={'fill'}
-                        objectFit={'contain'}
                         alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
                     />
                     </div>
                     <div className="visible relative aspect-[11/16] sm:hidden">
                         <Image
                         src={home1Mobile}
-                        layout={'fill'}
-                        objectFit={'cover'}
                         alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
                         />
                     </div>
@@ -39,16 +35,12 @@ const Home: NextPage = () => {
                     <div className="hidden relative aspect-[16/9] sm:flex">
                         <Image
                             src={home2}
-                            layout={'fill'}
-                            objectFit={'contain'}
                             alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
                         />
                     </div>
                     <div className="visible relative aspect-[11/16] sm:hidden">
                         <Image
                             src={home2Mobile}
-                            layout={'fill'}
-                            objectFit={'cover'}
                             alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
                         />
                     </div>
@@ -60,16 +52,12 @@ const Home: NextPage = () => {
                     <div className="hidden relative aspect-[16/9] sm:block">
                         <Image
                             src={home3}
-                            layout={'fill'}
-                            objectFit={'cover'}
                             alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
                         />
                     </div>
                     <div className="visible relative aspect-[11/16] sm:hidden">
                         <Image
                             src={home3Mobile}
-                            layout={'fill'}
-                            objectFit={'cover'}
                             alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
                         />
                     </div>
@@ -82,8 +70,6 @@ const Home: NextPage = () => {
                         <div className="hidden relative aspect-[16/9] sm:block">
                             <Image
                                 src={home4}
-                                layout={'fill'}
-                                objectFit={'cover'}
                                 alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
                             />
 
@@ -91,8 +77,6 @@ const Home: NextPage = () => {
                         <div className="visible relative aspect-[8/16] sm:hidden">
                             <Image
                                 src={home4Mobile}
-                                layout={'fill'}
-                                objectFit={'cover'}
                                 alt={"Thoughtfully Designed, Bespoke Furnishings for Modern Living."}
                             />
                         </div>

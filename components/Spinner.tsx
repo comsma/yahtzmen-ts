@@ -1,7 +1,7 @@
 
 export const Spinner =() => {
     return(
-        <div className={'h-[80vh] flex justify-center items-center bg-oxford-blue'}>
+        <div className={'h-[80vh] flex justify-center items-center bg-blue-800'}>
             <svg aria-hidden="true" className="mr-2 w-60 text-gray-200 animate-spin dark:text-gray-600 fill-golden-rod"
                  viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

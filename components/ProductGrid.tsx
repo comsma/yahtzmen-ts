@@ -1,8 +1,8 @@
 import {ProductsI} from "../interfaces/product.interface";
 import useSWR from 'swr'
 import Link from "next/link";
-
-const fetcher = (url: RequestInfo | URL) => fetch(url).then((res) => res.json());
+import Image from 'next/image'
+import {fetcher} from "../helpers/fetcher";
 
 export const ProductGrid =() => {
     const { data, error } = useSWR<ProductsI[]>('/api/product', fetcher)
@@ -11,8 +11,8 @@ export const ProductGrid =() => {
 
     return(
         <div className="bg-white" id={"product"}>
-            <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-                <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Products</h2>
+            <div className="max-w-2xl mx-auto py-4 px-4 sm:py-12 sm:px-6 lg:max-w-7xl lg:px-8">
+                <h2 className="py-2 text-4xl text-center font-extrabold tracking-tight text-gray-900">Products</h2>
                 <div
                     className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                     {data?.map((product) => (
@@ -20,11 +20,11 @@ export const ProductGrid =() => {
                             <Link href={`/Product?id=${product.id}`}>
                                 <div>
                                     <div
-                                        className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                                        <img
+                                        className="relative bg-gray-200 aspect-[1/1] rounded-md overflow-hidden group-hover:opacity-75">
+                                        <Image
+                                            fill={true}
                                             src={product.images[0].imageUrl}
                                             alt={product.name}
-                                            className="w-full h-full object-center object-cover lg:w-full lg:h-full"
                                         />
                                     </div>
                                     <div className="mt-4 flex justify-between">
