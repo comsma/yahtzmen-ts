@@ -1,18 +1,20 @@
-import {CartI, CartItemI} from "../interfaces/cart.interface";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { CartI, CartItemI } from '../interfaces/cart.interface'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 const initialState: CartI = {
-    items: []
+    items: [],
 }
 
 export const cartSlice = createSlice({
     name: 'cartSlice',
     initialState,
     reducers: {
-        addItem: (state, action: PayloadAction<CartItemI>) =>{
+        addItem: (state, action: PayloadAction<CartItemI>) => {
             //finds object by itemId if exists
-            const index = state.items.findIndex((obj) => obj.itemId === action.payload.itemId)
-            if(index > -1) {
+            const index = state.items.findIndex(
+                (obj) => obj.itemId === action.payload.itemId
+            )
+            if (index > -1) {
                 alert('Item is already in the cart')
             } else {
                 state.items.push(action.payload)
@@ -20,16 +22,22 @@ export const cartSlice = createSlice({
         },
         removeItem: (state, action: PayloadAction<String>) => {
             //finds object by itemId
-            const index = state.items.findIndex((obj) => obj.itemId === action.payload)
+            const index = state.items.findIndex(
+                (obj) => obj.itemId === action.payload
+            )
             state.items.splice(index, 1)
         },
         incrementItem: (state, action: PayloadAction<String>) => {
-            const index = state.items.findIndex((obj) => obj.itemId === action.payload)
+            const index = state.items.findIndex(
+                (obj) => obj.itemId === action.payload
+            )
             // increments item qty
             state.items[index].itemQty += 1
         },
         decrementItem: (state, action: PayloadAction<String>) => {
-            const index = state.items.findIndex((obj) => obj.itemId === action.payload)
+            const index = state.items.findIndex(
+                (obj) => obj.itemId === action.payload
+            )
             // decrements item qty
             if (state.items[index].itemQty <= 1) {
                 state.items.splice(index, 1)
@@ -39,10 +47,11 @@ export const cartSlice = createSlice({
         },
         emptyCart: (state) => {
             state.items.length = 0
-        }
-    }
+        },
+    },
 })
 
-export const { addItem, removeItem, incrementItem, decrementItem, emptyCart } = cartSlice.actions
+export const { addItem, removeItem, incrementItem, decrementItem, emptyCart } =
+    cartSlice.actions
 
 export default cartSlice.reducer

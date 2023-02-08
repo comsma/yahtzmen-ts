@@ -1,25 +1,20 @@
-import {NextPage} from "next";
-import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {useRouter} from "next/router";
-import {emptyCart} from "../../features/cartSlice";
-import {useEffect} from "react";
+import { NextPage } from 'next'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import { useRouter } from 'next/router'
+import { emptyCart } from '../../features/cartSlice'
+import { useEffect } from 'react'
 
-const Success: NextPage =() => {
-
-    const dispatch = useAppDispatch();
-    const cart = useAppSelector(state => state.items)
-    const router = useRouter();
-
+const Success: NextPage = () => {
+    const dispatch = useAppDispatch()
+    const cart = useAppSelector((state) => state.items)
+    const router = useRouter()
 
     useEffect(() => {
-        dispatch(emptyCart());
+        dispatch(emptyCart())
         router.push('/')
     }, [cart])
 
-    return (
-        <>
-        </>
-    )
+    return <></>
 }
 
 export default Success

@@ -1,7 +1,7 @@
-import {configureStore} from "@reduxjs/toolkit";
-import cartSliceReducer from "../features/cartSlice";
-import storage from 'redux-persist/lib/storage';
-import { persistReducer, persistStore } from 'redux-persist';
+import { configureStore } from '@reduxjs/toolkit'
+import cartSliceReducer from '../features/cartSlice'
+import storage from 'redux-persist/lib/storage'
+import { persistReducer, persistStore } from 'redux-persist'
 
 const persistConfig = {
     key: 'root',
@@ -11,10 +11,10 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, cartSliceReducer)
 
 export const store = configureStore({
-    reducer: persistedReducer
+    reducer: persistedReducer,
 })
 
-export const persistor = persistStore(store);
+export const persistor = persistStore(store)
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
