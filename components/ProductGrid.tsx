@@ -25,7 +25,7 @@ export const ProductGrid = () => {
                     )}
                     {data ? (
                         <>
-                            <h2 className="py-2 text-center text-4xl font-extrabold tracking-tight text-gray-900">
+                            <h2 className="my-10 py-2 text-center text-4xl font-extrabold tracking-tight text-gray-900">
                                 Products
                             </h2>
 
