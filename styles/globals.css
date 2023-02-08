@@ -4,8 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
     margin: 0;
     font-family: lora, serif;
+
 }

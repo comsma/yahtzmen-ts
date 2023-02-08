@@ -1,14 +1,14 @@
-import { SVGProps } from "react"
+import { SVGProps } from 'react'
 
 const navigation = {
-    main: [
-        {name: 'Privacy Policy', href: '/Privacy'},
-    ],
+    main: [{ name: 'Privacy Policy', href: '/Privacy' }],
     social: [
         {
             name: 'Instagram',
             href: 'https://www.instagram.com/yahtzmen/',
-            icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
+            icon: (
+                props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+            ) => (
                 <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
                     <path
                         fillRule="evenodd"
@@ -21,17 +21,30 @@ const navigation = {
         {
             name: 'Facebook',
             href: 'https://www.facebook.com/profile.php?id=100087308531880&mibextid=ZbWKwL',
-            icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
-                <svg xmlns="http://www.w3.org/2000/svg" fill={'currentColor'} viewBox="0 0 512 512" {...props}>
-                    <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/>
+            icon: (
+                props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+            ) => (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill={'currentColor'}
+                    viewBox="0 0 512 512"
+                    {...props}
+                >
+                    <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
                 </svg>
             ),
         },
         {
-            name: 'Pintrest',
+            name: 'Pinterest',
             href: 'https://www.pinterest.com/yahtzmen/',
-            icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
-                <svg fill="currentColor" viewBox="0 0 511.998 511.998" {...props}>
+            icon: (
+                props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+            ) => (
+                <svg
+                    fill="currentColor"
+                    viewBox="0 0 511.998 511.998"
+                    {...props}
+                >
                     <path
                         fillRule="evenodd"
                         d="M405.017,52.467C369.774,18.634,321.001,0,267.684,0C186.24,0,136.148,33.385,108.468,61.39
@@ -48,20 +61,25 @@ const navigation = {
                     />
                 </svg>
             ),
-        }
-    ]
+        },
+    ],
 }
 
 export default function Footer() {
-
-    return(
+    return (
         <>
-            <footer className="bg-blue-800 text-golden-rod font-lora mb-0">
-                <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
-                    <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+            <footer className="mb-0 bg-blue-800 font-lora text-golden-rod">
+                <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
+                    <nav
+                        className="-mx-5 -my-2 flex flex-wrap justify-center"
+                        aria-label="Footer"
+                    >
                         {navigation.main.map((item) => (
                             <div key={item.name} className="px-5 py-2">
-                                <a href={item.href} className="text-basehover:text-gray-300">
+                                <a
+                                    href={item.href}
+                                    className="text-basehover:text-gray-300"
+                                >
                                     {item.name}
                                 </a>
                             </div>
@@ -69,13 +87,22 @@ export default function Footer() {
                     </nav>
                     <div className="mt-8 flex justify-center space-x-6">
                         {navigation.social.map((item) => (
-                            <a key={item.name} href={item.href} className="hover:text-gray-300">
+                            <a
+                                key={item.name}
+                                href={item.href}
+                                className="hover:text-gray-300"
+                            >
                                 <span className="sr-only">{item.name}</span>
-                                <item.icon className="h-6 w-6" aria-hidden="true" />
+                                <item.icon
+                                    className="h-6 w-6"
+                                    aria-hidden="true"
+                                />
                             </a>
                         ))}
                     </div>
-                    <p className="mt-8 text-center text-base">&copy; 2022 Yahtzmen Furnishings All rights reserved.</p>
+                    <p className="mt-8 text-center text-base">
+                        &copy; 2022 Yahtzmen Furnishings All rights reserved.
+                    </p>
                 </div>
             </footer>
         </>
